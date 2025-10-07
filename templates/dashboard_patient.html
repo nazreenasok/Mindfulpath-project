@@ -1,0 +1,110 @@
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900"
+    />
+    <title>Patient Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  </head>
+  <body>
+    <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#ededed] px-10 py-3">
+        <div class="flex items-center gap-4 text-[#141414]">
+            <h2 class="text-[#141414] text-lg font-bold leading-tight tracking-[-0.015em]"><a href="/">MindfulPath</a></h2>
+        </div>
+        <div class="flex flex-1 justify-end items-center gap-4">
+            <a href="/my-appointments" class="text-[#141414] text-sm font-medium leading-normal">My Appointments</a>
+            <a href="/book-appointment" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-black text-neutral-50 text-sm font-bold leading-normal tracking-[0.015em]">
+              <span class="truncate">Book Appointment</span>
+            </a>
+            <!-- START: Logout Button Added -->
+            <a href="/logout" class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded h-10 px-4 bg-[#ededed] text-[#141414] text-sm font-bold leading-normal tracking-[0.015em]">
+                <span class="truncate">Logout</span>
+            </a>
+            <!-- END: Logout Button Added -->
+            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuAgq4Xxf2Ed30p0-xfv7EpasaRIiOYqx0NL8c1LLo8rhnXfVilo_7SxflBu7yr7rcGbDrHG9X__odYQkLXKgm0JpTdV2UoMc5MEd52UkhQRkSvqAIQpX0DXIC3fUUQ-1Mrzsw3iA4V7LL2B_gAtevsOZBfGhijbz91qlbNb7ykOH3cqsaNmnataKBTCcn5-FELcEotRcGjFDq2us0OBnRyZDMK2kvtNLC_idIAMJpaimER7Bh-w_ScbsQRuYMU9cQPphIybWl_IuQ");'></div>
+        </div>
+    </header> 
+    <div class="relative flex size-full min-h-screen flex-col bg-neutral-50 group/design-root overflow-x-hidden" style='font-family: Inter, "Noto Sans", sans-serif;'>
+      <div class="layout-container flex h-full grow flex-col">
+        <div class="gap-1 px-6 flex flex-1 justify-center py-5">
+          <div class="layout-content-container flex flex-col w-80">
+            <div class="flex h-full min-h-[700px] flex-col justify-between bg-neutral-50 p-4">
+              <div class="flex flex-col gap-4">
+                <div class="flex gap-3 items-center">
+                  <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCuZxDXG0Ta7U2FW2a2J3-YpiPNs4Ugoa1VylzdVXWa0G7DVGUHlKP_QHMawCjQo_jtuBGE--77iAQG1gT67K62Ewxo5ERs36X8vORaMPTzqRAZduBGn7y9JczNXBZLDAcov7dEj5SEgkjToOCJ5QyYSU147A2rKlDAbOFhHjfjHVqBicDPAPaF0_whu8EUjr_EDY3-nshWFSR2IegW-EmDu6vBaNxdlX1sBI2AkMtPxkWCPXfQP6Azudxk1WIcj8-p77ZeefNx_Q");'></div>
+                  <!-- User's name will appear here -->
+                  <h1 class="text-[#141414] text-base font-medium leading-normal">{{ user.name }}</h1>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <div class="flex items-center gap-3 px-3 py-2 rounded bg-[#ededed]">
+                    <div class="text-[#141414]" data-icon="User" data-size="24px" data-weight="fill">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24px" height="24px" fill="currentColor" viewBox="0 0 256 256">
+                        <path d="M230.93,220a8,8,0,0,1-6.93,4H32a8,8,0,0,1-6.92-12c15.23-26.33,38.7-45.21,66.09-54.16a72,72,0,1,1,73.66,0c27.39,8.95,50.86,27.83,66.09,54.16A8,8,0,0,1,230.93,220Z"></path>
+                      </svg>
+                    </div>
+                    <p class="text-[#141414] text-sm font-medium leading-normal">Profile</p>
+                  </div>
+                   <div class="flex items-center gap-3 px-3 py-2 rounded">
+                     <a href="/my-appointments" class="text-[#141414] text-sm font-medium leading-normal">My Appointments</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+            <div class="flex flex-wrap justify-between gap-3 p-4"><p class="text-[#141414] tracking-light text-[32px] font-bold leading-tight min-w-72">Profile</p></div>
+            <h3 class="text-[#141414] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">Personal Information</h3>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p class="text-[#141414] text-base font-medium leading-normal pb-2">Name</p>
+                <input
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-14 placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal"
+                  value="{{ user.name }}" readonly
+                />
+              </label>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p class="text-[#141414] text-base font-medium leading-normal pb-2">Email</p>
+                <input
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-14 placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal"
+                  value="{{ user.email }}" readonly
+                />
+              </label>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p class="text-[#141414] text-base font-medium leading-normal pb-2">Age</p>
+                <input
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-14 placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal"
+                  value="{{ user.age }}" readonly
+                />
+              </label>
+              <label class="flex flex-col min-w-40 flex-1">
+                <p class="text-[#141414] text-base font-medium leading-normal pb-2">Gender</p>
+                <input
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-14 placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal"
+                  value="{{ user.gender | capitalize }}" readonly
+                />
+              </label>
+            </div>
+            <div class="flex max-w-[480px] flex-wrap items-end gap-4 px-4 py-3">
+              <label class="flex flex-col min-w-40 flex-1">
+                <p class="text-[#141414] text-base font-medium leading-normal pb-2">Phone Number</p>
+                <input
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded text-[#141414] focus:outline-0 focus:ring-0 border border-[#dbdbdb] bg-neutral-50 focus:border-[#dbdbdb] h-14 placeholder:text-neutral-500 p-[15px] text-base font-normal leading-normal"
+                  value="{{ user.phone }}" readonly
+                />
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - MindfulPath</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
+    <link 
+        rel="stylesheet" 
+        href="https://fonts.googleapis.com/css2?display=swap&family=Inter:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900" 
+    />
+</head>
+<body class="bg-neutral-50 font-sans">
+    <div class="min-h-screen flex flex-col">
+
+        <!-- Header -->
+        <header class="flex items-center justify-between border-b border-gray-200 px-10 py-3">
+            <div class="flex items-center gap-4">
+                <h1 class="text-lg font-bold"><a href="/">MindfulPath</a></h1>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="/" class="text-sm font-medium">Home</a>
+                <a class="text-[#141414] text-sm font-medium leading-normal hover:text-blue-600 transition-all" href="/about-us">About Us</a>
+		<a class="text-[#141414] text-sm font-medium leading-normal hover:text-blue-600 transition-all" href="/services">Services</a>
+		<a class="text-blue-600 text-sm font-medium leading-normal hover:text-blue-700 transition-all" href="/contact-us">Contact</a>
+                <a href="/signup" class="px-4 py-2 bg-black text-white rounded text-sm font-bold">Sign Up</a>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="flex flex-1 justify-center items-start py-10">
+            <div class="w-full max-w-md bg-white rounded shadow p-6">
+                
+                <h2 class="text-2xl font-bold text-center mb-6">Welcome Back</h2>
+
+                <!-- Flash messages -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        <div class="mb-4">
+                            {% for category, message in messages %}
+                                <div class="p-3 rounded mb-2 
+                                    {% if category == 'success' %}bg-green-100 text-green-800{% endif %}
+                                    {% if category == 'danger' %}bg-red-100 text-red-800{% endif %}
+                                    {% if category == 'info' %}bg-blue-100 text-blue-800{% endif %}
+                                ">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                {% endwith %}
+
+                <!-- Login Form -->
+                <form method="POST" action="/login" class="flex flex-col gap-4">
+                    
+                    <!-- Email -->
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Email</label>
+                        <input type="email" name="email" placeholder="Enter your email" required
+                               class="w-full p-3 rounded bg-gray-100 focus:outline-none focus:ring-2 focus:ring-black"/>
+                    </div>
+
+                    <!-- Password -->
+                    <div>
+                        <label class="block text-sm font-medium mb-1">Password</label>
+                        <input type="password" name="password" placeholder="Enter your password" required
+                               class="w-full p-3 rounded bg-gray-100 focus:outline-none focus:ring-2 focus:ring-black"/>
+                    </div>
+
+                    <!-- Forgot Password -->
+                    <p class="text-sm text-gray-500 text-right">
+                        <a href="/forgot-password" class="underline">Forgot Password?</a>
+                    </p>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="w-full py-3 bg-black text-white font-bold rounded hover:bg-gray-800">
+                        Log In
+                    </button>
+
+                </form>
+            </div>
+        </main>
+    </div>
+</body>
+</html>
+
